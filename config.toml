@@ -1,0 +1,4 @@
+baseURL = 'https://domi.zip/'
+languageCode = 'en-us'
+title = 'Domi.zip'
+theme = 'PaperMod'

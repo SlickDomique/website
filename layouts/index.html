@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <main aria-role="main">
+    <header class="homepage-header">
+      <h1>Hi, I'm Dominique</h1>
+      <h2>and this is my website</h2>
+      {{ with .Params.subtitle }}
+      <span class="subtitle">{{ . }}</span>
+      {{ end }}
+    </header>
+    <div class="homepage-content">
+
+        I'm going to post some of my work here. Right now there's nothing. Only this. Don't look for more. 
+      <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+      {{ .Content }}
+    </div>
+    <div>
+      {{ range first 10 .Site.RegularPages }}
+          {{ .Render "summary" }}
+      {{ end }}
+    </div>
+  </main>
+{{ end }}
