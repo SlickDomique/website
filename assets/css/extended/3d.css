@@ -1,0 +1,29 @@
+#dingusPlace {
+    width: 500px;
+    height: 500px;
+    cursor: grab;
+}
+
+.main {
+    max-width: 1200px;
+}
+
+.homepage {
+    width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+    .homepage {
+        display: flex;
+        flex-direction: row;        
+    }
+}
+
+.homepage a {
+    color: inherit;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.homepage a:hover {
+    border-bottom: 1px solid var(--primary);
+}

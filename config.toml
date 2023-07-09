@@ -2,3 +2,18 @@ baseURL = 'https://domi.zip/'
 languageCode = 'en-us'
 title = 'Domi.zip'
 theme = 'PaperMod'
+
+
+
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$', '^babel$']
+    osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+)$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+  [security.goTemplates]
+    AllowActionJSTmpl = false
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
