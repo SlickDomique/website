@@ -13,7 +13,7 @@
       </header>
       <div class="homepage-content">
         Professionaly I'm doing IT security focused on testing and maintaining automatic scannings.
-        In free time I'm taking care of my pets, hacking around, cooking and doing diy stuff. 
+        In free time I'm taking care of my pets, hacking around, cooking and doing diy stuff.
         The blog will be here eventually, but for now:
         <ul>
           <li><a href="https://github.com/SlickDomique">GitHub</a></li>
@@ -22,11 +22,16 @@
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
         {{ .Content }}
       </div>
+      <hr>
       <div>
-        {{ range first 10 .Site.RegularPages }}
-            {{ .Render "summary" }}
-        {{ end }}
+        <ul>
+          {{ range ( where .Site.RegularPages "Type" "posts" | first 5 ) }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
       </div>
     </div>
   </main>
-{{ end }} 
+{{ end }}

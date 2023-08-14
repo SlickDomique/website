@@ -25,23 +25,26 @@ const mouse = {
     camera.position.y = 20;
     camera.rotation.x = -0.4;
     let dingus = null;
-    
+
     const lightAmb = new THREE.AmbientLight(0xffffff);
     scene.add(lightAmb);
-  
+
     document.addEventListener('mousemove', onMouseMove, false);
     function onMouseMove(event) {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     };
-      
+
 
     function animate() {
         requestAnimationFrame( animate );
 
         if (dingus) {
             dingus.rotation.y += mouse.x * 0.05;
-            dingus.rotation.x += mouse.y * 0.001;
+            console.log(dingus.rotation.x)
+            if (dingus.rotation.x + mouse.y * 0.001 > -0.4 && dingus.rotation.x + mouse.y * 0.001 < 0.1) {
+                dingus.rotation.x += mouse.y * 0.001;
+            }
         }
 
         renderer.render( scene, camera );

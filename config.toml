@@ -3,7 +3,11 @@ languageCode = 'en-us'
 title = 'Domi.zip'
 theme = 'PaperMod'
 
-
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/posts/"
+weight = 20
 
 [security]
   enableInlineShortcodes = false
