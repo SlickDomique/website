@@ -3,11 +3,20 @@ languageCode = 'en-us'
 title = 'Domi.zip'
 theme = 'PaperMod'
 
+[menus]
 [[menu.main]]
-identifier = "posts"
-name = "posts"
-url = "/posts/"
-weight = 20
+  identifier = "posts"
+  name = "posts"
+  url = "/posts/"
+  weight = 10
+[[menu.main]]
+  identifier = "projects"
+  name = "projects"
+  url = "/projects/"
+  weight = 20
+
+[taxonomies]
+  project = 'projects'
 
 [security]
   enableInlineShortcodes = false

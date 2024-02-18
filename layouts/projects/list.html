@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+	<header class="page-header">
+		<h1>
+			Some of the stuff I made
+		</h1>
+	</header>
+
+	<ul class="projects-list">
+		{{ range ( where .Site.RegularPages "Type" "projects" ) }}
+			<li>
+				<a href="{{ .Params.link }}" target="_blank">
+					<div class="projects-list-text">
+						<h4>{{ .Title }}</h4>
+						<div class="projects-list-summary">{{ .Summary }}</div>
+					</div>
+					{{ with .Resources.GetMatch "thumbnail.*" }}
+						{{ with .Fill "300x300" }}
+							<img src="{{ .RelPermalink  }}" alt="{{ .Title }}">
+						{{ end }}
+					{{ end }}
+				</a>
+			</li>
+		{{ end }}
+	</ul>
+
+{{ end }}
