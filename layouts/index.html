@@ -1,38 +1,57 @@
 {{ define "main" }}
-  <main aria-role="main" class="homepage">
+<main aria-role="main" class="homepage">
     <div id="dingusPlace"></div>
     <div>
-      <header class="homepage-header">
-        <h1>Hi, I'm Dominique</h1>
-        <h2>and this is my website</h2>
-        {{ with .Params.subtitle }}
-        <span class="subtitle">{{ . }}</span>
-        {{ end }}
-
-
-      </header>
-      <div class="homepage-content">
-        Professionaly I'm doing IT security, was doing dev + admin work. Looking to get back to dev (currently open for offers).<br />
-        In free time I'm taking care of my pets, hacking around, cooking and doing diy stuff.
-        The blog will be here eventually, but for now:
-        <ul>
-          <li><a href="https://github.com/SlickDomique" target="_blank">GitHub</a></li>
-          <li><a href="mailto:SlickDomique@proton.me">mail at SlickDomique@proton.me</a></li>
-          <li><a href="https://ko-fi.com/domi_zip" target="_blank">Like what I do? You can buy me a coffee</a></li>
-        </ul>
-        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-        {{ .Content }}
-      </div>
-      <hr>
-      <div>
-        <ul>
-          {{ range ( where .Site.RegularPages "Type" "posts" | first 5 ) }}
-            <li>
-              <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
+        <header class="homepage-header">
+            <h1>Hi, I'm Dominique</h1>
+            <h2>and this is my website</h2>
+            {{ with .Params.subtitle }}
+            <span class="subtitle">{{ . }}</span>
+            {{ end }}
+        </header>
+        <div class="homepage-content">
+            Professionaly I'm doing IT security, was doing dev + admin work.
+            Looking to get back to dev (currently open for offers).<br />
+            In free time I'm taking care of my pets, hacking around, cooking and
+            doing diy stuff. The blog will be here eventually, but for now:
+            <ul>
+                <li>
+                    <a href="https://gitlab.com/SlickDomique" target="_blank"
+                        >🦊 GitLab</a
+                    >
+                </li>
+                <li>
+                    <a href="https://github.com/SlickDomique" target="_blank"
+                        >GitHub</a
+                    >
+                </li>
+                <li>
+                    <a href="mailto:slickdomi@tuta.io"
+                        >mail at slickdomi@tuta.io</a
+                    >
+                </li>
+                <li>
+                    <a href="https://ko-fi.com/domi_zip" target="_blank"
+                        >Like what I do? You can buy me a coffee</a
+                    >
+                </li>
+            </ul>
+            <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+            {{ .Content }}
+        </div>
+        <hr />
+        <div>
+            <ul>
+                {{ range ( where .Site.RegularPages "Type" "posts" | first 5 )
+                }}
+                <li>
+                    <a href="{{ .Permalink }}"
+                        >{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a
+                    >
+                </li>
+                {{ end }}
+            </ul>
+        </div>
     </div>
-  </main>
+</main>
 {{ end }}
